@@ -1,0 +1,10 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        d = defaultdict(list)
+        for s in strs:
+            sorted_s = ''.join(sorted(s))
+            d[sorted_s].append(s)
+        return list(d.values())
+
+      列表 字母相同放一组 总之 先用 sorted 排序 字符串 注意  sort（）不能排字符串可以排单个的
+      Join创建新【】然后添加就行 最后 转成list 注意values就是
