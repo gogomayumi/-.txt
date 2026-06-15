@@ -1,0 +1,24 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        x = 0
+        y = 1
+        res=[]
+        stack = [(x,root)]
+        while stack:
+            z,node = stack.pop()
+            if node is None:
+                continue
+            if z == x:
+                stack.append((x,node.right))
+                stack.append((y,node))
+                stack.append((x,node.left))
+            else:
+                res.append(node.val)
+        return res 
+二叉树 的 中序 是中左右  是先出后进的栈 所以利用 01 判断进了没 过了变成1 之后 就可以输出 顺序 需要注意 遍历是什么  
